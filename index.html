@@ -59,16 +59,27 @@
   .hero__copy .v-display { font-size: clamp(2.2rem, 1.2rem + 3.4vw, 4.4rem); line-height: 1; text-wrap: balance; }
   .hero__copy .v-lede { margin-top: var(--v-5); color: var(--v-ink); opacity: .9; }
   .hero__cta { display: flex; flex-wrap: wrap; gap: var(--v-3); margin-top: var(--v-6); }
-  .demo-for { display: inline-flex; align-items: center; gap: .7em; margin-bottom: var(--v-5); padding: .35em 1em .35em .35em;
-    border: 1px solid var(--v-hair-strong); border-radius: 999px; background: rgb(19 26 36 / .7); font-size: var(--v-t-sm); color: var(--v-ink); }
-  .demo-for img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+  .demo-for { position: absolute; z-index: 5; left: var(--v-gutter); top: clamp(5.5rem, 12vh, 7rem); max-width: calc(100% - 2 * var(--v-gutter));
+    display: inline-flex; align-items: center; gap: .75em; padding: .4em 1.2em .4em .4em;
+    border: 1px solid var(--v-accent); border-radius: 999px; background: var(--v-surface);
+    box-shadow: 0 10px 30px rgb(0 0 0 / .45), 0 0 0 4px rgb(207 218 230 / .08);
+    font-size: var(--v-t-sm); color: var(--v-ink); }
+  .demo-for img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: none; }
+  .demo-for b { flex: none; background: var(--v-accent); color: var(--v-accent-ink); font-weight: 700; font-size: var(--v-t-xs);
+    letter-spacing: var(--v-track-wide); text-transform: uppercase; padding: .35em .8em; border-radius: 999px; }
+  @media (max-height: 780px) and (min-width: 861px) {
+    .hero__copy { bottom: clamp(2.5rem, 7vh, 4rem); }
+    .hero__copy .v-display { font-size: clamp(2rem, 7.2vh, 3.6rem); }
+    .hero__copy .v-lede { margin-top: var(--v-3); font-size: var(--v-t-base); }
+    .hero__cta { margin-top: var(--v-4); }
+  }
   @media (max-width: 860px) {
-    .hero__copy { bottom: auto; top: clamp(5rem, 10vh, 6rem); }
+    .hero__copy { bottom: auto; top: clamp(9rem, 17vh, 10rem); }
     .hero__scrim { display: none; }
     .hero__copy .v-lede { font-size: var(--v-t-sm); margin-top: var(--v-3); }
     .hero__cta { margin-top: var(--v-4); }
     .hero__copy .v-display { font-size: clamp(1.9rem, 1.2rem + 3.6vw, 2.6rem); }
-    .demo-for { font-size: var(--v-t-xs); }
+    .demo-for { top: 4.75rem; font-size: var(--v-t-xs); line-height: 1.3; padding-right: .9em; gap: .55em; }
     .demo-for img { width: 32px; height: 32px; }
   }
 
@@ -199,8 +210,9 @@
         <div class="hero__floor" aria-hidden="true"></div>
         <div class="v-scrim v-scrim--lead hero__scrim" aria-hidden="true"></div>
 
+        <div class="demo-for" data-v-cue="0 0.8 0" data-v-rise="0"><img src="assets/zakazchik.jpg" alt="" width="40" height="40"><b>Демо</b><span>для Дмитрия · по заказу «Разработка лендинга с дизайном нейросетей»</span></div>
+
         <div class="v-copy v-copy--lead hero__copy" data-v-cue="0 0.8 0">
-          <div class="demo-for"><img src="assets/zakazchik.jpg" alt="" width="40" height="40">Демо для Дмитрия · по заказу «Разработка лендинга с дизайном нейросетей»</div>
           <h1 class="v-display v-display--xl" data-v-kinetic="lines">Продажа частных самолётов – история борта до сделки</h1>
           <p class="v-lede">Подберём самолёт под ваши задачи и покажем налёт, ресурс двигателя и историю ремонтов до того, как вы внесёте деньги.</p>
           <div class="hero__cta">
